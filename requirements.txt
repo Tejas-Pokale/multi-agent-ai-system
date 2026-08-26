@@ -1,0 +1,11 @@
+langchain
+langchain-openai
+langchain-core
+langchain-community
+langchain-chroma
+rank-bm25 
+flashrank 
+langgraph
+pandantic 
+fastapi
+streamlit
