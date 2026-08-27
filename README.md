@@ -6,6 +6,8 @@ This repository contains the implementation for the three AI engineering tasks:
 2. **TAM Account Health Summariser**
 3. **Evaluation Harness**
 
+And the **4. design node task**
+
 The solutions use structured LLM outputs, retrieval, orchestration, deterministic data processing, evaluation, and production-oriented application interfaces.
 
 ---
@@ -100,6 +102,10 @@ The final result contains:
 
 The application exposes both a normal synchronous FastAPI endpoint and a streaming endpoint. The synchronous endpoint is also used by the evaluation harness so that regression tests exercise the actual Task 1 application.
 
+**OUTPUT:-**
+
+![alt text](images\task-1.png)
+
 ### Task 2 — TAM Account Health Summariser
 
 The TAM Account Health Summariser automatically generates an account-health brief from account information and recent support-ticket history.
@@ -156,6 +162,10 @@ The Streamlit interface allows the TAM to provide:
 
 The analysis date defaults to the current date and cannot be moved into the future.
 
+**OUTPUT:-**
+
+![alt text](images\task-2.png)
+
 ### Task 3 — Evaluation Harness
 
 The evaluation harness systematically evaluates both Task 1 and Task 2.
@@ -209,6 +219,10 @@ The evaluation suite contains multiple normal, edge, and adversarial cases for e
 For Task 2, factual expectations are derived directly from the Task 2 data layer rather than manually duplicating account and ticket facts in the evaluation suite.
 
 ---
+
+**OUTPUT:-**
+
+![alt text](images\task-3.png)
 
 ## Repository Structure
 
