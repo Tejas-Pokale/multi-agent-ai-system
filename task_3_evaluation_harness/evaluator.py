@@ -213,6 +213,8 @@ class EvaluationHarness:
 
         except Exception as exc:
 
+            print(f'Error Occured : {exc}')
+
             return EvaluationCaseResult(
                 case_id=case.case_id,
                 task=case.task,
