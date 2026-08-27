@@ -355,120 +355,6 @@ def _terminate_backend(process: subprocess.Popen | None) -> None:
     except subprocess.TimeoutExpired:
         process.kill()
 
-
-# ============================================================
-# DEFENSIVE RESULT PARSING
-#
-# Ideally the backend sends `result.model_dump(mode="json")` (or equivalent)
-# over SSE. If it instead sends `str(model)` — Pydantic's default __str__,
-# which looks like `field1=value1 field2=<Enum.MEMBER: 'x'> field3=[...]`
-# rather than real JSON — the frontend still gets a dict, but with a single
-# giant string value and no usable fields. The helpers below detect and
-# parse that shape so the UI still renders correctly either way. The real
-# fix belongs in the backend; this is a safety net, not a replacement.
-# ============================================================
-
-def _tokenize_top_level(text: str, delimiter: str) -> list[str]:
-    """Split `text` on top-level `delimiter` chars, ignoring ones nested
-    inside (), [], {}, <> or quoted strings."""
-    tokens: list[str] = []
-    buf: list[str] = []
-    depth = 0
-    quote: str | None = None
-    i, n = 0, len(text)
-
-    while i < n:
-        ch = text[i]
-        if quote:
-            buf.append(ch)
-            if ch == "\\" and i + 1 < n:
-                buf.append(text[i + 1])
-                i += 2
-                continue
-            if ch == quote:
-                quote = None
-            i += 1
-            continue
-        if ch in "'\"":
-            quote = ch
-            buf.append(ch)
-        elif ch in "([{<":
-            depth += 1
-            buf.append(ch)
-        elif ch in ")]}>":
-            depth -= 1
-            buf.append(ch)
-        elif depth == 0 and ch == delimiter:
-            tokens.append("".join(buf))
-            buf = []
-            if delimiter == " ":
-                while i + 1 < n and text[i + 1] == " ":
-                    i += 1
-        else:
-            buf.append(ch)
-        i += 1
-
-    if buf:
-        tokens.append("".join(buf))
-    return [t for t in tokens if t.strip()]
-
-
-def _parse_repr_value(value: str) -> Any:
-    value = value.strip()
-    if value == "None":
-        return None
-
-    if value.startswith("<") and value.endswith(">"):
-        # Enum repr: <ClassName.MEMBER: 'value'>
-        match = re.search(r":\s*(.+)>$", value)
-        return _parse_repr_value(match.group(1)) if match else value
-
-    if value.startswith("[") and value.endswith("]"):
-        items = _tokenize_top_level(value[1:-1], ",")
-        return [_parse_repr_value(item) for item in items]
-
-    obj_match = re.match(r"^([A-Za-z_][A-Za-z0-9_]*)\((.*)\)$", value, re.S)
-    if obj_match:
-        obj: dict[str, Any] = {}
-        for pair in _tokenize_top_level(obj_match.group(2), ","):
-            key, sep, val = pair.strip().partition("=")
-            if sep:
-                obj[key.strip()] = _parse_repr_value(val)
-        if obj:
-            return obj
-
-    try:
-        return ast.literal_eval(value)
-    except (ValueError, SyntaxError):
-        return value
-
-
-def parse_pydantic_str_repr(text: str) -> dict:
-    """Parse Pydantic's default `str(model)` output (`field=value field=value ...`)
-    into a plain dict."""
-    result: dict[str, Any] = {}
-    for token in _tokenize_top_level(text.strip(), " "):
-        key, sep, value = token.partition("=")
-        if sep:
-            result[key.strip()] = _parse_repr_value(value)
-    return result
-
-
-def normalize_result_payload(result_data: dict) -> dict:
-    """If the backend sent a single stringified-model field instead of real
-    JSON, parse it into proper fields. Otherwise pass the dict through."""
-    if isinstance(result_data, dict) and len(result_data) == 1:
-        (only_key, only_value), = result_data.items()
-        if isinstance(only_value, str) and "=" in only_value:
-            try:
-                parsed = parse_pydantic_str_repr(only_value)
-                if parsed:
-                    return parsed
-            except Exception:
-                logger.exception("Failed to parse stringified result under key %r", only_key)
-    return result_data
-
-
 _STEP_KEYWORDS: list[tuple[int, tuple[str, ...]]] = [
     (0, ("prepar", "normalis", "normaliz")),
     (1, ("historical ticket", "similar ticket", "ticket search")),
@@ -765,7 +651,7 @@ def run_triage(payload: dict, progress_ph) -> TriageRunState:
                 elif event_type == "result":
                     result_data = data.get("data")
                     if isinstance(result_data, dict) and state.result is None:
-                        state.result = normalize_result_payload(result_data)
+                        state.result = result_data
                         state.completed_steps = set(range(len(PIPELINE_STEPS)))
                         state.current_step = len(PIPELINE_STEPS) - 1
                         last_message = "Done."

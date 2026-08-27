@@ -2,6 +2,10 @@ from __future__ import annotations
 
 import os
 import re
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 
 from pathlib import Path
 
@@ -50,9 +54,16 @@ from .schemas import (
     TicketStatus,
 )
 
-from .prompts import (
-    RETRIEVAL_ASSESSMENT_PROMPT,
+from backend.prompts.prompt_final_triage import (
     FINAL_TRIAGE_PROMPT,
+)
+
+from backend.prompts.prompt_retrieval_assessment import (
+    RETRIEVAL_ASSESSMENT_PROMPT
+)
+
+from backend.prompts.prompt_query_refinement import (
+    QUERY_REFINEMENT_PROMPT
 )
 
 

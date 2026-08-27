@@ -1,0 +1,222 @@
+name: AI Evaluation Harness
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  evaluation:
+    name: Run AI Evaluation Harness
+    runs-on: ubuntu-latest
+
+    env:
+      PYTHONUNBUFFERED: "1"
+
+      # ----------------------------------------------------------------------
+      # OpenAI configuration
+      # Store these values in:
+      # GitHub repository -> Settings -> Secrets and variables -> Actions
+      # ----------------------------------------------------------------------
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_LLM_MODEL: ${{ secrets.OPENAI_LLM_MODEL }}
+      OPENAI_EMBEDDING_MODEL: ${{ secrets.OPENAI_EMBEDDING_MODEL }}
+
+      # ----------------------------------------------------------------------
+      # Task 1 API configuration
+      # Change these if your actual FastAPI endpoint/module differs.
+      # ----------------------------------------------------------------------
+      TASK1_BASE_URL: http://127.0.0.1:8000
+      TASK1_ENDPOINT: /triage
+      TASK1_TIMEOUT_SECONDS: "180"
+
+    steps:
+
+      # ======================================================================
+      # Checkout
+      # ======================================================================
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+
+      # ======================================================================
+      # Python
+      # ======================================================================
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+
+      # ======================================================================
+      # Dependencies
+      # ======================================================================
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+
+      # ======================================================================
+      # Validate required secrets
+      # ======================================================================
+
+      - name: Validate environment
+        shell: bash
+        run: |
+          set -e
+
+          if [ -z "$OPENAI_API_KEY" ]; then
+            echo "::error::OPENAI_API_KEY GitHub secret is missing."
+            exit 1
+          fi
+
+          if [ -z "$OPENAI_LLM_MODEL" ]; then
+            echo "::error::OPENAI_LLM_MODEL GitHub secret is missing."
+            exit 1
+          fi
+
+          if [ -z "$OPENAI_EMBEDDING_MODEL" ]; then
+            echo "::error::OPENAI_EMBEDDING_MODEL GitHub secret is missing."
+            exit 1
+          fi
+
+          echo "Required environment variables are configured."
+
+
+      - name: Start Task 1 FastAPI server
+        shell: bash
+        run: |
+          nohup python -m uvicorn \
+            task_1_triage_agent.app:app \
+            --host 127.0.0.1 \
+            --port 8000 \
+            > task1_api.log 2>&1 &
+
+          echo $! > task1_api.pid
+
+          echo "Task 1 API process started."
+
+
+      # ======================================================================
+      # Wait for Task 1 API
+      # ======================================================================
+
+      - name: Wait for Task 1 API
+        shell: bash
+        run: |
+          python - <<'PY'
+          import sys
+          import time
+          import urllib.request
+
+          base_url = "http://127.0.0.1:8000"
+
+          # Prefer a health endpoint when the application provides one.
+          health_urls = [
+              f"{base_url}/health",
+              f"{base_url}/",
+          ]
+
+          max_attempts = 30
+
+          for attempt in range(1, max_attempts + 1):
+              for url in health_urls:
+                  try:
+                      with urllib.request.urlopen(
+                          url,
+                          timeout=2,
+                      ) as response:
+
+                          if 200 <= response.status < 500:
+                              print(
+                                  f"Task 1 API is reachable at {url}"
+                              )
+                              sys.exit(0)
+
+                  except Exception:
+                      pass
+
+              print(
+                  f"Waiting for Task 1 API "
+                  f"({attempt}/{max_attempts})..."
+              )
+
+              time.sleep(2)
+
+          print("Task 1 API did not become available.")
+
+          try:
+              with open(
+                  "task1_api.log",
+                  "r",
+                  encoding="utf-8",
+              ) as file:
+                  print("\n===== Task 1 API LOG =====")
+                  print(file.read())
+          except Exception:
+              pass
+
+          sys.exit(1)
+          PY
+
+
+      # ======================================================================
+      # Run evaluation harness
+      # ======================================================================
+
+      - name: Run evaluation harness
+        run: |
+          python -m task_3_evaluation_harness.run_evals
+
+
+      # ======================================================================
+      # Upload reports
+      # ======================================================================
+      #
+      # always() ensures the reports are uploaded even when the quality gate
+      # fails.
+      #
+      # ======================================================================
+
+      - name: Upload evaluation reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-evaluation-report
+          path: |
+            reports/evaluation_results.json
+            reports/evaluation_report.md
+          if-no-files-found: warn
+
+
+      # ======================================================================
+      # Upload Task 1 logs when something fails
+      # ======================================================================
+
+      - name: Upload Task 1 API logs
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: task1-api-log
+          path: task1_api.log
+          if-no-files-found: warn
+
+
+      # ======================================================================
+      # Stop Task 1 API
+      # ======================================================================
+
+      - name: Stop Task 1 API
+        if: always()
+        shell: bash
+        run: |
+          if [ -f task1_api.pid ]; then
+            kill "$(cat task1_api.pid)" || true
+          fi

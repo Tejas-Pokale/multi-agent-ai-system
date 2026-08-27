@@ -1,0 +1,1889 @@
+{
+  "summary": {
+    "total_tests": 12,
+    "passed_tests": 12,
+    "failed_tests": 0,
+    "error_tests": 0,
+    "pass_rate": 1.0,
+    "average_quality_score": 0.9604,
+    "task1_average_score": 0.9542,
+    "task2_average_score": 0.9667,
+    "quality_gate_passed": true
+  },
+  "results": [
+    {
+      "case_id": "T1-01",
+      "task": "task1",
+      "name": "Critical production failure",
+      "adversarial": false,
+      "status": "PASS",
+      "quality_score": 1.0,
+      "rule_score": 0.0,
+      "judge_score": 1.0,
+      "criteria": [
+        {
+          "criterion_id": "product_area",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The product area identified in the application output is 'DataBridge Pro', which is consistent with the described problem in the test input. The issue is specifically related to the 'DataBridge Pro pipeline', and the output correctly categorizes it under the same product area. Therefore, the classification of the product area is accurate and satisfies the criterion."
+        },
+        {
+          "criterion_id": "category",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The issue category is correctly identified as 'Performance', which aligns with the description of a technical product failure in the production pipeline. This is not a feature request, but rather a report of a malfunction affecting multiple users, which fits the criterion of a technical product failure/bug."
+        },
+        {
+          "criterion_id": "urgency",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The application output correctly classifies the urgency as P2, which is appropriate for a situation where a production pipeline is continuously failing and affecting 75 users in Engineering. The reasoning provided supports this classification by noting the major impact and lack of immediate workaround, while also recognizing that it is not a complete business stoppage. This aligns well with the urgency criterion for such an issue."
+        },
+        {
+          "criterion_id": "reasoning",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The reasoning in the application output clearly mentions the production impact by stating that the pipeline failure is affecting 75 users in Engineering. It also notes the persistence of the problem by indicating that the issue is occurring continuously and that restarting the service did not resolve it. The urgency is addressed by classifying the issue as P2, explaining that it is urgent but not a complete business stoppage. Therefore, the reasoning satisfies the criterion fully."
+        },
+        {
+          "criterion_id": "response",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The draft response effectively acknowledges the impact of the issue by mentioning the urgency and the number of users affected. It also requests useful troubleshooting information by asking the user to check the Pipeline Monitoring dashboard for error logs or alerts and to try restarting the pipeline from the UI. This aligns well with the criterion of acknowledging impact and requesting useful information."
+        }
+      ],
+      "latency_seconds": 19.280209699994884,
+      "actual_output": {
+        "product_area": "DataBridge Pro",
+        "category": "Performance",
+        "urgency": "P2",
+        "reasoning": "The production pipeline failure is affecting 75 users in Engineering, indicating a major impact with no immediate workaround available. The issue is urgent but not a complete business stoppage, classifying it as P2.",
+        "known_issue": false,
+        "knowledge_base_match": null,
+        "similar_tickets": [
+          {
+            "ticket_id": "TKT-10410",
+            "similarity_score": 0.8852675961294482,
+            "product": "DataBridge Pro",
+            "product_area": "API",
+            "category": "Data Loss",
+            "urgency": "P4",
+            "status": "Closed"
+          },
+          {
+            "ticket_id": "TKT-10258",
+            "similarity_score": 0.8840614439459408,
+            "product": "DataBridge Pro",
+            "product_area": "Connectors",
+            "category": "Bug",
+            "urgency": "P3",
+            "status": "Open"
+          },
+          {
+            "ticket_id": "TKT-10266",
+            "similarity_score": 0.8838329164903672,
+            "product": "DataBridge Pro",
+            "product_area": "Pipeline Monitoring",
+            "category": "Billing",
+            "urgency": "P3",
+            "status": "Resolved"
+          },
+          {
+            "ticket_id": "TKT-10318",
+            "similarity_score": 0.8804281825549675,
+            "product": "DataBridge Pro",
+            "product_area": "Schema Management",
+            "category": "Onboarding",
+            "urgency": "P2",
+            "status": "Resolved"
+          },
+          {
+            "ticket_id": "TKT-10288",
+            "similarity_score": 0.8772964987060525,
+            "product": "DataBridge Pro",
+            "product_area": "Data Ingestion",
+            "category": "Data Loss",
+            "urgency": "P4",
+            "status": "Resolved"
+          }
+        ],
+        "recommended_team": "DataBridge Pro Support Team",
+        "draft_response": "Hello,\n\nThank you for reaching out to us. We understand the urgency of the situation with your production DataBridge Pro pipeline affecting 75 users in Engineering. Our team is here to assist you in resolving this issue as quickly as possible.\n\nPlease ensure that you have checked the Pipeline Monitoring dashboard for any error logs or alerts that might provide more insight into the failure. If you haven't already, try restarting the pipeline from the UI. If the issue persists, our team will need to investigate further.\n\nWe appreciate your patience and cooperation as we work to resolve this matter. Please let us know if there are any additional details you can provide that might assist in troubleshooting.\n\nBest regards,\n\n[Your Name]\nDataBridge Pro Support Team"
+      },
+      "expected_facts": null,
+      "error": null
+    },
+    {
+      "case_id": "T1-02",
+      "task": "task1",
+      "name": "Integration authentication failure",
+      "adversarial": false,
+      "status": "PASS",
+      "quality_score": 0.9125,
+      "rule_score": 0.0,
+      "judge_score": 0.9,
+      "criteria": [
+        {
+          "criterion_id": "integration",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The output correctly identifies the problem as an integration/authentication issue, as it involves integrating AnalyticsHub with Azure AD and mentions authentication failure. The classification under 'Integration' and routing to the 'Identity / Authentication Support Team' further supports this recognition."
+        },
+        {
+          "criterion_id": "category",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The category 'Integration' is appropriate for the issue described in the test input, which involves integrating AnalyticsHub with Azure AD and encountering an authentication failure. This aligns well with the nature of integration-related problems."
+        },
+        {
+          "criterion_id": "urgency",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The application output correctly classifies the urgency as P3, which is appropriate given the context. The issue is described as an authentication failure during integration with Azure AD, with a valid OAuth token and reachable endpoint, suggesting a configuration issue rather than a critical service outage. The reasoning aligns with the criterion that the issue should not be escalated to P1 as there is no indication of a critical business impact. Therefore, the classification quality and prioritization reasoning are sound."
+        },
+        {
+          "criterion_id": "reasoning",
+          "score": 0.75,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The reasoning provided in the application output correctly identifies the issue as related to the integration of AnalyticsHub with Azure AD, where authentication is failing despite a valid OAuth token. This suggests a configuration issue, which is a reasonable interpretation given the evidence. The classification of the urgency as P3 is justified by the reasoning that a workaround may be possible, indicating that the issue is not critical but still important. However, the reasoning could be improved by explicitly mentioning the specific aspects of the OAuth token or Azure AD configuration that might be causing the issue, which would strengthen the connection between the evidence and the conclusion."
+        },
+        {
+          "criterion_id": "response",
+          "score": 0.75,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The draft response is generally appropriate for diagnosing an authentication/integration issue. It acknowledges the problem, suggests a potential cause (configuration issue), and advises reviewing the API documentation. It also directs the user to the appropriate support team for further assistance. However, it could be improved by offering more specific diagnostic steps or questions to help identify the configuration issue, which would enhance its usefulness."
+        }
+      ],
+      "latency_seconds": 15.460792600060813,
+      "actual_output": {
+        "product_area": "Data Sources",
+        "category": "Integration",
+        "urgency": "P3",
+        "reasoning": "The issue involves integrating AnalyticsHub with Azure AD, where authentication is failing despite a valid OAuth token. This suggests a configuration issue rather than a complete service outage, aligning with a P3 urgency as a workaround may be possible.",
+        "known_issue": false,
+        "knowledge_base_match": null,
+        "similar_tickets": [
+          {
+            "ticket_id": "TKT-10476",
+            "similarity_score": 0.8810613404434235,
+            "product": "AnalyticsHub",
+            "product_area": "Data Sources",
+            "category": "Bug",
+            "urgency": "P3",
+            "status": "Resolved"
+          },
+          {
+            "ticket_id": "TKT-10220",
+            "similarity_score": 0.87643480136114,
+            "product": "AnalyticsHub",
+            "product_area": "Exports",
+            "category": "Performance",
+            "urgency": "P4",
+            "status": "Closed"
+          },
+          {
+            "ticket_id": "TKT-10047",
+            "similarity_score": 0.8279283075371096,
+            "product": "AnalyticsHub",
+            "product_area": "Reports",
+            "category": "Integration",
+            "urgency": "P3",
+            "status": "Closed"
+          },
+          {
+            "ticket_id": "TKT-10299",
+            "similarity_score": 0.8221458249776739,
+            "product": "AnalyticsHub",
+            "product_area": "Dashboard",
+            "category": "Feature Request",
+            "urgency": "P3",
+            "status": "Closed"
+          },
+          {
+            "ticket_id": "TKT-10385",
+            "similarity_score": 0.8117479662857359,
+            "product": "AnalyticsHub",
+            "product_area": "Dashboard",
+            "category": "How-To",
+            "urgency": "P2",
+            "status": "Resolved"
+          }
+        ],
+        "recommended_team": "Identity / Authentication Support Team",
+        "draft_response": "Hello,\n\nThank you for reaching out to us regarding the authentication issue you're experiencing while integrating AnalyticsHub with Azure AD. We understand the importance of resolving this promptly.\n\nBased on the information provided, it seems there might be a configuration issue with the integration setup. We recommend reviewing the API documentation to ensure all required fields are correctly configured.\n\nOur Identity / Authentication Support Team is here to assist you further. Please let us know if you have any additional details or questions.\n\nBest regards,\n\n[Your Support Team]"
+      },
+      "expected_facts": null,
+      "error": null
+    },
+    {
+      "case_id": "T1-03",
+      "task": "task1",
+      "name": "Routine feature request",
+      "adversarial": false,
+      "status": "PASS",
+      "quality_score": 1.0,
+      "rule_score": 0.0,
+      "judge_score": 1.0,
+      "criteria": [
+        {
+          "criterion_id": "feature_request",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The application correctly classifies the ticket as a 'Feature Request' based on the customer's request for a new feature to enable bulk archiving of records. This aligns with the input, which clearly describes a need for a new functionality rather than reporting a bug or seeking support for an existing feature."
+        },
+        {
+          "criterion_id": "urgency",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The application output correctly classifies the ticket as a P3, indicating that it is not a P1 critical incident. The reasoning provided supports this classification by stating that the request impacts efficiency but does not stop business operations. Therefore, the ticket is appropriately not treated as a P1 critical incident."
+        },
+        {
+          "criterion_id": "reasoning",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The reasoning correctly identifies the issue as an inconvenient workflow rather than an outage. It acknowledges that the current process is manual and time-consuming, impacting efficiency but not stopping business operations. This aligns with the classification of the urgency as P3, indicating that the issue is not critical but affects productivity."
+        },
+        {
+          "criterion_id": "routing",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The suggested responder team, 'Archiving Support Team,' is relevant to the product area 'Archiving' mentioned in the application output. This indicates that the team is likely responsible for handling feature requests related to archiving operations, making the routing appropriate."
+        },
+        {
+          "criterion_id": "response",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The draft response correctly acknowledges the customer's request for a bulk archive feature and explicitly states that this feature is not currently available. It does not make any unsupported claims about the feature's existence, thus satisfying the criterion."
+        }
+      ],
+      "latency_seconds": 16.882028899970464,
+      "actual_output": {
+        "product_area": "Archiving",
+        "category": "Feature Request",
+        "urgency": "P3",
+        "reasoning": "The customer is requesting a new feature to enable bulk archiving of records, which is currently a manual and time-consuming process. This impacts efficiency but does not stop business operations, hence classified as P3.",
+        "known_issue": false,
+        "knowledge_base_match": null,
+        "similar_tickets": [
+          {
+            "ticket_id": "TKT-10340",
+            "similarity_score": 0.8658824201206377,
+            "product": "WorkflowEngine",
+            "product_area": "Scheduling",
+            "category": "Performance",
+            "urgency": "P4",
+            "status": "Resolved"
+          },
+          {
+            "ticket_id": "TKT-10448",
+            "similarity_score": 0.8655264071803549,
+            "product": "WorkflowEngine",
+            "product_area": "Scheduling",
+            "category": "Data Loss",
+            "urgency": "P2",
+            "status": "Open"
+          },
+          {
+            "ticket_id": "TKT-10134",
+            "similarity_score": 0.8610384379441921,
+            "product": "WorkflowEngine",
+            "product_area": "Scheduling",
+            "category": "How-To",
+            "urgency": "P4",
+            "status": "Pending Customer"
+          },
+          {
+            "ticket_id": "TKT-10137",
+            "similarity_score": 0.8524072383458797,
+            "product": "WorkflowEngine",
+            "product_area": "Scheduling",
+            "category": "Bug",
+            "urgency": "P4",
+            "status": "Resolved"
+          },
+          {
+            "ticket_id": "TKT-10454",
+            "similarity_score": 0.7639596798704632,
+            "product": "WorkflowEngine",
+            "product_area": "Templates",
+            "category": "Performance",
+            "urgency": "P4",
+            "status": "In Progress"
+          }
+        ],
+        "recommended_team": "Archiving Support Team",
+        "draft_response": "Hello,\n\nThank you for reaching out to us with your request for bulk archive operations. We understand that the current manual process is time-consuming and appreciate your feedback on this matter. \n\nWhile this feature is not currently available, we have noted your request and will pass it along to our product team for consideration in future updates. In the meantime, if there are any other ways we can assist you, please let us know.\n\nThank you for your patience and understanding.\n\nBest regards,\n\n[Your Support Team]"
+      },
+      "expected_facts": null,
+      "error": null
+    },
+    {
+      "case_id": "T1-04",
+      "task": "task1",
+      "name": "Data loss incident",
+      "adversarial": false,
+      "status": "PASS",
+      "quality_score": 1.0,
+      "rule_score": 0.0,
+      "judge_score": 1.0,
+      "criteria": [
+        {
+          "criterion_id": "category",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The output correctly identifies the missing-data/data-loss nature of the incident by categorizing it under 'Data Loss' and explaining that there is a significant data discrepancy due to a sync failure. This aligns with the semantic quality criterion of identifying the nature of the incident."
+        },
+        {
+          "criterion_id": "urgency",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The application output correctly identifies the urgency as P2, which is appropriate given the production impact and the significant discrepancy of 5200 missing records. The reasoning provided aligns with the urgency classification, noting the lack of an immediate workaround and the effect on a production workflow. This satisfies the criterion of reflecting the production impact and missing records in the urgency classification."
+        },
+        {
+          "criterion_id": "reasoning",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The reasoning provided in the application output explicitly connects the missing records and production impact to the assigned priority. It states that the ticket describes a production impact due to a sync failure, resulting in a significant data discrepancy, which aligns with a P2 urgency as it affects a production workflow with no immediate workaround mentioned. This clearly satisfies the criterion of connecting the issue to its priority."
+        },
+        {
+          "criterion_id": "routing",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The suggested responder team, 'Integrations Support Team,' is relevant to a data/synchronization incident as the issue involves a CloudSync instance and a significant data discrepancy. The problem is clearly related to integrations, making the team selection appropriate."
+        },
+        {
+          "criterion_id": "response",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The draft response effectively acknowledges the data impact by mentioning the discrepancy of approximately 5200 records affecting the production workflow. It also prioritizes recovery by stating that the Integrations Support Team is reviewing the case to assist in restoring synchronization and recovering the missing records. The response is clear, acknowledges the critical nature of the issue, and assures the customer of ongoing support, thus satisfying the criterion."
+        }
+      ],
+      "latency_seconds": 25.70081680000294,
+      "actual_output": {
+        "product_area": "Integrations",
+        "category": "Data Loss",
+        "urgency": "P2",
+        "reasoning": "The ticket describes a production impact due to a sync failure, resulting in a significant data discrepancy. This aligns with a P2 urgency as it affects a production workflow with no immediate workaround mentioned.",
+        "known_issue": false,
+        "knowledge_base_match": null,
+        "similar_tickets": [
+          {
+            "ticket_id": "TKT-10152",
+            "similarity_score": 0.8189274637002083,
+            "product": "CloudSync",
+            "product_area": "Integrations",
+            "category": "Integration",
+            "urgency": "P3",
+            "status": "Resolved"
+          },
+          {
+            "ticket_id": "TKT-10223",
+            "similarity_score": 0.8182717193288168,
+            "product": "CloudSync",
+            "product_area": "Conflict Resolution",
+            "category": "How-To",
+            "urgency": "P3",
+            "status": "Pending Customer"
+          },
+          {
+            "ticket_id": "TKT-10099",
+            "similarity_score": 0.8174728210182751,
+            "product": "CloudSync",
+            "product_area": "File Sync",
+            "category": "Feature Request",
+            "urgency": "P3",
+            "status": "Open"
+          },
+          {
+            "ticket_id": "TKT-10263",
+            "similarity_score": 0.8173452375367025,
+            "product": "CloudSync",
+            "product_area": "Integrations",
+            "category": "How-To",
+            "urgency": "P2",
+            "status": "In Progress"
+          },
+          {
+            "ticket_id": "TKT-10292",
+            "similarity_score": 0.8147608978522104,
+            "product": "CloudSync",
+            "product_area": "Integrations",
+            "category": "Feature Request",
+            "urgency": "P2",
+            "status": "In Progress"
+          }
+        ],
+        "recommended_team": "Integrations Support Team",
+        "draft_response": "Hello,\n\nThank you for reaching out to us. We understand the critical nature of the issue you're facing with the CloudSync instance, which has resulted in a discrepancy of approximately 5200 records affecting your production workflow.\n\nOur Integrations Support Team is currently reviewing your case to assist in restoring synchronization and recovering the missing records. We appreciate your patience and will keep you updated on the progress.\n\nIf there are any changes or additional details you can provide, please let us know.\n\nBest regards,\n\n[Your Support Team]"
+      },
+      "expected_facts": null,
+      "error": null
+    },
+    {
+      "case_id": "T1-05",
+      "task": "task1",
+      "name": "Ambiguous intermittent failure",
+      "adversarial": true,
+      "status": "PASS",
+      "quality_score": 0.8125,
+      "rule_score": 0.0,
+      "judge_score": 0.8,
+      "criteria": [
+        {
+          "criterion_id": "ambiguity_handling",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The reasoning in the application output acknowledges the intermittent nature of the failure by stating 'intermittent export failures' and correctly identifies the impact on the finance team's reporting deadline. It also distinguishes the issue as a performance problem rather than a bug or data loss, which aligns with the description in the test input. Therefore, the reasoning satisfies the criterion of acknowledging the intermittent nature of the failure."
+        },
+        {
+          "criterion_id": "no_data_loss",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The application output correctly classifies the issue as a performance problem rather than a data-loss incident. The reasoning explicitly states that no data loss is reported, aligning with a performance issue. This classification is consistent with the information provided in the test input, which mentions intermittent export failures but confirms that no data has been lost."
+        },
+        {
+          "criterion_id": "urgency",
+          "score": 0.75,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The application output assigns an urgency of 'P2' to the issue, which is appropriate given the context. The ticket describes intermittent failures affecting a reporting deadline, which is significant but not a complete outage. The reasoning provided aligns with this urgency level, acknowledging the major impact on the finance team without assuming a total system failure. However, the reasoning could more explicitly connect the urgency level to the specific impact on the reporting deadline to fully satisfy the criterion."
+        },
+        {
+          "criterion_id": "reasoning",
+          "score": 0.5,
+          "passed": false,
+          "method": "llm",
+          "reasoning": "The reasoning provided in the application output partially satisfies the criterion. It correctly identifies the impact on the finance team's reporting deadline and notes the absence of data loss, which supports the classification as a performance issue. However, it lacks a detailed explanation of why the issue is categorized as 'Performance' rather than 'Bug' or another category, especially given the presence of similar tickets categorized as 'Bug'. The reasoning does not sufficiently address the competing signals from similar tickets with different categories and urgencies, which is necessary for a comprehensive understanding of the situation."
+        },
+        {
+          "criterion_id": "response",
+          "score": 0.75,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The draft response acknowledges the finance team's reporting deadline, which is a critical aspect of the issue. It also suggests ensuring that users are on the latest version of AnalyticsHub and that network configurations are optimized, which are useful diagnostic steps. However, it could be improved by explicitly requesting more specific diagnostics or logs from the user to aid in troubleshooting, which would enhance the response's usefulness."
+        }
+      ],
+      "latency_seconds": 25.461910199956037,
+      "actual_output": {
+        "product_area": "Exports",
+        "category": "Performance",
+        "urgency": "P2",
+        "reasoning": "The ticket describes intermittent export failures impacting the finance team's reporting deadline, indicating a major impact with a significant workaround needed. No data loss is reported, aligning with a performance issue rather than a bug or data loss.",
+        "known_issue": false,
+        "knowledge_base_match": null,
+        "similar_tickets": [
+          {
+            "ticket_id": "TKT-10342",
+            "similarity_score": 0.8235196791809114,
+            "product": "AnalyticsHub",
+            "product_area": "Exports",
+            "category": "Bug",
+            "urgency": "P3",
+            "status": "Closed"
+          },
+          {
+            "ticket_id": "TKT-10045",
+            "similarity_score": 0.8083338415622712,
+            "product": "AnalyticsHub",
+            "product_area": "Exports",
+            "category": "Bug",
+            "urgency": "P3",
+            "status": "Closed"
+          },
+          {
+            "ticket_id": "TKT-10038",
+            "similarity_score": 0.8081405956275536,
+            "product": "AnalyticsHub",
+            "product_area": "Exports",
+            "category": "Onboarding",
+            "urgency": "P3",
+            "status": "Pending Customer"
+          },
+          {
+            "ticket_id": "TKT-10072",
+            "similarity_score": 0.8073842054605485,
+            "product": "AnalyticsHub",
+            "product_area": "Exports",
+            "category": "Performance",
+            "urgency": "P3",
+            "status": "Open"
+          },
+          {
+            "ticket_id": "TKT-10261",
+            "similarity_score": 0.8050680290422743,
+            "product": "AnalyticsHub",
+            "product_area": "Exports",
+            "category": "Data Loss",
+            "urgency": "P4",
+            "status": "Closed"
+          }
+        ],
+        "recommended_team": "Exports Support Team",
+        "draft_response": "Hello,\n\nThank you for reaching out to us regarding the intermittent export failures in AnalyticsHub. We understand the urgency given your finance team's reporting deadline, and we're here to help.\n\nOur initial assessment suggests this may be a performance-related issue. While we investigate further, please ensure that all users are operating on the latest version of AnalyticsHub and that any network-related configurations are optimized.\n\nWe will prioritize this issue and keep you updated on our progress. If you have any additional information or changes in the situation, please let us know.\n\nThank you for your patience and understanding.\n\nBest regards,\n\n[Your Support Team]"
+      },
+      "expected_facts": null,
+      "error": null
+    },
+    {
+      "case_id": "T1-06",
+      "task": "task1",
+      "name": "Minimal incomplete ticket",
+      "adversarial": false,
+      "status": "PASS",
+      "quality_score": 1.0,
+      "rule_score": 1.0,
+      "judge_score": 1.0,
+      "criteria": [
+        {
+          "criterion_id": "no_hallucination",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The application output does not invent any product, error message, environment, user count, or business impact. It correctly identifies the issue as a general functionality problem without specific details, categorizes it as a 'Bug', and assigns a moderate urgency level (P3) based on the lack of evidence for a critical business stoppage. The reasoning provided aligns with the input, and no unsupported assumptions are made. The draft response appropriately asks for more details without assuming any specifics about the issue."
+        },
+        {
+          "criterion_id": "uncertainty",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The reasoning in the application output acknowledges the lack of specific details in the ticket ('The ticket indicates a functionality issue (\\'it stopped working\\') without specific details'). This demonstrates an understanding that the information provided is insufficient to fully assess the situation, which aligns with the criterion of acknowledging insufficient information."
+        },
+        {
+          "criterion_id": "response",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The draft response effectively requests the missing information needed to triage the issue. It asks for more details about the problem, specifically requesting any error messages or recent changes that might have occurred before the issue started. This aligns with the criterion of requesting necessary information to better understand and address the issue."
+        },
+        {
+          "criterion_id": "structured_output",
+          "score": 1.0,
+          "passed": true,
+          "method": "rule",
+          "reasoning": "Found 6/6 expected output groups."
+        }
+      ],
+      "latency_seconds": 17.816505199996755,
+      "actual_output": {
+        "product_area": "General",
+        "category": "Bug",
+        "urgency": "P3",
+        "reasoning": "The ticket indicates a functionality issue ('it stopped working') without specific details. No evidence of a critical business stoppage or major impact, suggesting a moderate impact with potential workarounds.",
+        "known_issue": false,
+        "knowledge_base_match": null,
+        "similar_tickets": [
+          {
+            "ticket_id": "TKT-10331",
+            "similarity_score": 0.4050753020605103,
+            "product": "WorkflowEngine",
+            "product_area": "Error Handling",
+            "category": "Integration",
+            "urgency": "P4",
+            "status": "Resolved"
+          },
+          {
+            "ticket_id": "TKT-10419",
+            "similarity_score": 0.16410961398674595,
+            "product": "WorkflowEngine",
+            "product_area": "Actions",
+            "category": "Data Loss",
+            "urgency": "P3",
+            "status": "Resolved"
+          }
+        ],
+        "recommended_team": "General Support Team",
+        "draft_response": "Hello,\n\nThank you for reaching out to us. We understand that you're experiencing an issue where the system has stopped working. We apologize for any inconvenience this may be causing.\n\nTo assist you better, could you please provide more details about the problem? Specifically, any error messages or recent changes that might have occurred before the issue started would be helpful.\n\nIn the meantime, our team is here to support you and will work to resolve this as quickly as possible.\n\nBest regards,\n\n[Your Support Team]"
+      },
+      "expected_facts": null,
+      "error": null
+    },
+    {
+      "case_id": "T2-01",
+      "task": "task2",
+      "name": "Healthy account grounding",
+      "adversarial": false,
+      "status": "PASS",
+      "quality_score": 1.0,
+      "rule_score": 1.0,
+      "judge_score": 1.0,
+      "criteria": [
+        {
+          "criterion_id": "account_identity",
+          "score": 1.0,
+          "passed": true,
+          "method": "rule",
+          "reasoning": "Matched 2/2 account identity fields."
+        },
+        {
+          "criterion_id": "health_status",
+          "score": 1.0,
+          "passed": true,
+          "method": "rule",
+          "reasoning": "Health status matches: Healthy."
+        },
+        {
+          "criterion_id": "usage_trend",
+          "score": 1.0,
+          "passed": true,
+          "method": "rule",
+          "reasoning": "Usage trend matches: Declining."
+        },
+        {
+          "criterion_id": "metrics",
+          "score": 1.0,
+          "passed": true,
+          "method": "rule",
+          "reasoning": "8/8 deterministic metrics match Task 2 data."
+        },
+        {
+          "criterion_id": "summary_quality",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The executive summary accurately and concisely synthesizes the account's situation by highlighting the key aspects: the account's current healthy status, the absence of recent high-severity support issues, the potential risks due to declining usage trend and underutilization of licensed seats, and the importance of monitoring open tickets. It also mentions the upcoming renewal as an opportunity to address these issues, which aligns with the provided data and expected facts. The summary effectively captures the essential points without introducing unsupported claims."
+        },
+        {
+          "criterion_id": "risk_quality",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The risk findings in the actual application output are well-supported by the supplied account and ticket evidence. The output identifies potential risks such as the declining usage trend and underutilization of licensed seats, both of which are directly supported by the account data showing a usage trend marked as 'Declining' and a significant gap between active seats (252) and licensed seats (400). Additionally, the presence of 5 open tickets is noted as a potential risk, which is consistent with the account data. The analysis does not introduce any invented risks and remains grounded in the provided evidence, thus satisfying the criterion."
+        },
+        {
+          "criterion_id": "talking_points",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The talking points provided in the output are useful and specific to the Belbury Group account. Each topic addresses a particular aspect of the account's current status, such as the declining usage trend, seat underutilization, open tickets, and customer sentiment insights. The rationale for each topic is clearly explained, and the suggested questions are tailored to elicit specific information that could help address the identified issues. This makes the talking points actionable and relevant to the account's situation."
+        }
+      ],
+      "latency_seconds": null,
+      "actual_output": {
+        "account": {
+          "account_id": "ACC-4516",
+          "company": "Belbury Group",
+          "tam": "Rohan Mehta",
+          "plan_tier": "Business",
+          "arr_usd": 48000.0,
+          "seats_licensed": 400,
+          "seats_active": 252,
+          "products": [
+            "CloudSync",
+            "SecureVault",
+            "DataBridge Pro"
+          ],
+          "health_status": "Healthy",
+          "usage_trend": "Declining",
+          "open_tickets": 5,
+          "p1_tickets_last_30d": 0,
+          "customer_since": "2026-02-12",
+          "renewal_date": "2026-08-20",
+          "last_qbr_date": "2025-12-23",
+          "primary_contact": {
+            "name": "Sam Okafor",
+            "title": "CTO"
+          },
+          "escalation_notes": [],
+          "nps_score": null,
+          "last_login_days_ago": 9,
+          "integrations_active": [
+            "Salesforce"
+          ],
+          "region": "US-West",
+          "industry": "Government"
+        },
+        "metrics": {
+          "seat_utilization_percent": 63.0,
+          "licensed_seats": 400,
+          "active_seats": 252,
+          "tickets_last_90d": 0,
+          "open_tickets_last_90d": 0,
+          "p1_tickets_last_90d": 0,
+          "p2_tickets_last_90d": 0,
+          "average_ticket_satisfaction": null
+        },
+        "ticket_count": 0,
+        "account_analysis": {
+          "overall_assessment": "The account is currently in a healthy state with no recent high-severity support issues. However, there is a declining usage trend and a significant gap between active and licensed seats, which could indicate potential future concerns if not addressed.",
+          "positive_signals": [
+            "The account is marked as 'Healthy'.",
+            "There are no open P1 tickets in the last 30 or 90 days, indicating no recent critical issues.",
+            "The account has active integrations with Salesforce, suggesting engagement with the product ecosystem.",
+            "The last login was 9 days ago, indicating recent activity."
+          ],
+          "negative_signals": [
+            "Usage trend is declining, which could indicate reduced engagement or satisfaction.",
+            "There is a significant gap between active seats (252) and licensed seats (400), indicating underutilization.",
+            "There are 5 open tickets, which could suggest unresolved issues or dissatisfaction."
+          ],
+          "key_observations": [
+            "Despite the healthy status, the declining usage trend and underutilization of seats could pose future risks if not addressed.",
+            "The absence of recent high-severity tickets is a positive sign, but the presence of 5 open tickets needs monitoring to ensure they do not escalate.",
+            "The lack of NPS data and average ticket satisfaction scores limits insights into customer sentiment."
+          ]
+        },
+        "risk_analysis": {
+          "flags": []
+        },
+        "brief": {
+          "executive_summary": {
+            "text": "The Belbury Group account is currently healthy, with no recent high-severity support issues, but it faces potential risks due to a declining usage trend and significant underutilization of licensed seats. The most important usage signal is the 63% seat utilization, which indicates a gap between active and licensed seats. The absence of recent high-severity tickets is a positive support signal, though the presence of 5 open tickets requires monitoring. The upcoming renewal in August 2026 presents an opportunity to address these issues and improve engagement."
+          },
+          "open_risks": [],
+          "recommended_talking_points": [
+            {
+              "topic": "Declining Usage Trend",
+              "rationale": "Addressing the declining usage trend is crucial to prevent future disengagement and potential churn.",
+              "suggested_question": "Can you share any specific reasons for the declining usage trend, and how can we support you in increasing engagement?"
+            },
+            {
+              "topic": "Seat Underutilization",
+              "rationale": "Understanding the reasons behind the underutilization of seats can help optimize the value derived from the current plan.",
+              "suggested_question": "What factors are contributing to the underutilization of your licensed seats, and are there plans to increase active usage?"
+            },
+            {
+              "topic": "Open Tickets Monitoring",
+              "rationale": "Ensuring that open tickets are resolved promptly can prevent escalation and improve customer satisfaction.",
+              "suggested_question": "Are there any specific issues related to the open tickets that we should prioritize to enhance your experience?"
+            },
+            {
+              "topic": "Customer Sentiment Insights",
+              "rationale": "Gathering insights into customer sentiment can help tailor support and engagement strategies.",
+              "suggested_question": "How do you currently feel about our products and services, and is there any feedback you would like to provide?"
+            }
+          ]
+        }
+      },
+      "expected_facts": {
+        "account": {
+          "account_id": "ACC-4516",
+          "company": "Belbury Group",
+          "tam": "Rohan Mehta",
+          "plan_tier": "Business",
+          "arr_usd": 48000,
+          "seats_licensed": 400,
+          "seats_active": 252,
+          "products": [
+            "CloudSync",
+            "SecureVault",
+            "DataBridge Pro"
+          ],
+          "health_status": "Healthy",
+          "usage_trend": "Declining",
+          "open_tickets": 5,
+          "p1_tickets_last_30d": 0,
+          "customer_since": "2026-02-12",
+          "renewal_date": "2026-08-20",
+          "last_qbr_date": "2025-12-23",
+          "primary_contact": {
+            "name": "Sam Okafor",
+            "title": "CTO"
+          },
+          "escalation_notes": [],
+          "nps_score": null,
+          "last_login_days_ago": 9,
+          "integrations_active": [
+            "Salesforce"
+          ],
+          "region": "US-West",
+          "industry": "Government"
+        },
+        "metrics": {
+          "seat_utilization_percent": 63.0,
+          "licensed_seats": 400,
+          "active_seats": 252,
+          "tickets_last_90d": 0,
+          "open_tickets_last_90d": 0,
+          "p1_tickets_last_90d": 0,
+          "p2_tickets_last_90d": 0,
+          "average_ticket_satisfaction": null
+        },
+        "tickets": [],
+        "ticket_ids": [],
+        "ticket_count": 0
+      },
+      "error": null
+    },
+    {
+      "case_id": "T2-02",
+      "task": "task2",
+      "name": "At-risk account grounding",
+      "adversarial": false,
+      "status": "PASS",
+      "quality_score": 1.0,
+      "rule_score": 1.0,
+      "judge_score": 1.0,
+      "criteria": [
+        {
+          "criterion_id": "account_identity",
+          "score": 1.0,
+          "passed": true,
+          "method": "rule",
+          "reasoning": "Matched 2/2 account identity fields."
+        },
+        {
+          "criterion_id": "health_status",
+          "score": 1.0,
+          "passed": true,
+          "method": "rule",
+          "reasoning": "Health status matches: At Risk."
+        },
+        {
+          "criterion_id": "usage_trend",
+          "score": 1.0,
+          "passed": true,
+          "method": "rule",
+          "reasoning": "Usage trend matches: Declining."
+        },
+        {
+          "criterion_id": "metrics",
+          "score": 1.0,
+          "passed": true,
+          "method": "rule",
+          "reasoning": "8/8 deterministic metrics match Task 2 data."
+        },
+        {
+          "criterion_id": "risk_detection",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The brief accurately identifies meaningful risk signals based on the provided account data without inventing unsupported risks. It highlights the declining usage trends, low seat utilization, and disengagement as indicated by the last login being 46 days ago. It also notes the low NPS score and the presence of open tickets, including P1 tickets, as indicators of customer dissatisfaction. Furthermore, it correctly identifies the potential risk of vendor switching due to pricing concerns and competitor evaluation, which are supported by the escalation notes. The brief does not introduce any unsupported risks, thus satisfying the criterion."
+        },
+        {
+          "criterion_id": "summary_quality",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The executive summary accurately connects the strongest account-level signals by highlighting the declining usage trends, low seat utilization, and the potential risk of vendor switching. It mentions the critical issues such as the last login being 46 days ago, the low NPS score of 4.0, and the presence of 9 open tickets including 2 P1 tickets. Additionally, it emphasizes the importance of addressing the procurement team's pricing review and decision maker's evaluation of competitors before the upcoming renewal in November 2026. These elements are well-aligned with the expected facts and provide a coherent overview of the account's current risks."
+        },
+        {
+          "criterion_id": "actionability",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The talking points provided in the output are well-focused on concrete TAM actions and customer discussions. Each topic is directly related to actionable steps that the TAM can take to address the account's at-risk status. The suggested questions are specific and designed to elicit detailed responses from the customer, which can guide the TAM in taking appropriate actions. The topics cover key areas such as declining usage, support challenges, vendor evaluation, and renewal strategy, all of which are critical to improving the account's health and securing renewal. This aligns well with the criterion of focusing on concrete TAM actions and customer discussion."
+        }
+      ],
+      "latency_seconds": null,
+      "actual_output": {
+        "account": {
+          "account_id": "ACC-3930",
+          "company": "Praxis Corp",
+          "tam": "Olivia Grant",
+          "plan_tier": "Enterprise",
+          "arr_usd": 48000.0,
+          "seats_licensed": 1290,
+          "seats_active": 806,
+          "products": [
+            "AnalyticsHub",
+            "DataBridge Pro",
+            "SecureVault",
+            "CloudSync"
+          ],
+          "health_status": "At Risk",
+          "usage_trend": "Declining",
+          "open_tickets": 9,
+          "p1_tickets_last_30d": 2,
+          "customer_since": "2025-11-23",
+          "renewal_date": "2026-11-13",
+          "last_qbr_date": "2026-05-10",
+          "primary_contact": {
+            "name": "Alex Morgan",
+            "title": "Director of Infrastructure"
+          },
+          "escalation_notes": [
+            "Procurement team requested pricing review",
+            "Decision maker considering competing vendor evaluation"
+          ],
+          "nps_score": 4.0,
+          "last_login_days_ago": 46,
+          "integrations_active": [
+            "PagerDuty",
+            "Okta"
+          ],
+          "region": "US-East",
+          "industry": "Financial Services"
+        },
+        "metrics": {
+          "seat_utilization_percent": 62.48,
+          "licensed_seats": 1290,
+          "active_seats": 806,
+          "tickets_last_90d": 0,
+          "open_tickets_last_90d": 0,
+          "p1_tickets_last_90d": 0,
+          "p2_tickets_last_90d": 0,
+          "average_ticket_satisfaction": null
+        },
+        "ticket_count": 0,
+        "account_analysis": {
+          "overall_assessment": "The account is currently at risk due to declining usage trends, low seat utilization, and a recent lack of engagement as indicated by the last login being 46 days ago. Additionally, there are significant concerns regarding potential vendor switching, as noted in the escalation notes. The high number of open tickets, including recent P1 incidents, further exacerbates the situation.",
+          "positive_signals": [
+            "The account is on an Enterprise plan, indicating a high level of commitment.",
+            "Active integrations with PagerDuty and Okta suggest some level of ongoing engagement with the platform."
+          ],
+          "negative_signals": [
+            "Health status is marked as 'At Risk'.",
+            "Usage trend is declining, with only 62.48% seat utilization.",
+            "Last login was 46 days ago, indicating potential disengagement.",
+            "NPS score is low at 4.0, suggesting customer dissatisfaction.",
+            "There are 9 open tickets, including 2 P1 tickets in the last 30 days, indicating unresolved critical issues.",
+            "Escalation notes indicate the procurement team is considering a pricing review and a decision maker is evaluating competing vendors."
+          ],
+          "key_observations": [
+            "The declining usage trend and low seat utilization suggest that the customer is not fully leveraging the licensed capacity, which may be contributing to their at-risk status.",
+            "The presence of 9 open tickets, including 2 P1 tickets, indicates ongoing support challenges that could be impacting customer satisfaction and contributing to the low NPS score.",
+            "The escalation notes highlight a risk of churn due to potential vendor evaluation and pricing concerns, which are critical to address given the upcoming renewal date in November 2026."
+          ]
+        },
+        "risk_analysis": {
+          "flags": []
+        },
+        "brief": {
+          "executive_summary": {
+            "text": "Praxis Corp is currently at risk due to declining usage trends and low seat utilization, with only 62.48% of seats being actively used. The most significant usage signal is the declining trend, compounded by the fact that the last login was 46 days ago, indicating potential disengagement. The low NPS score of 4.0 highlights customer dissatisfaction, further emphasized by the presence of 9 open tickets, including 2 P1 tickets. The most critical risk is the potential for vendor switching, as indicated by the procurement team's pricing review and decision maker's evaluation of competitors, which is crucial to address before the upcoming renewal in November 2026."
+          },
+          "open_risks": [],
+          "recommended_talking_points": [
+            {
+              "topic": "Declining Usage and Engagement",
+              "rationale": "Understanding the reasons behind the declining usage and disengagement is crucial to improving account health and preventing churn.",
+              "suggested_question": "Can you share any specific challenges or reasons that might be contributing to the reduced usage and engagement with our products?"
+            },
+            {
+              "topic": "Support Challenges and Satisfaction",
+              "rationale": "Addressing support issues is essential to improve customer satisfaction and resolve open tickets.",
+              "suggested_question": "What specific issues have you encountered with our support that we can address to improve your experience?"
+            },
+            {
+              "topic": "Vendor Evaluation and Pricing Concerns",
+              "rationale": "Clarifying the procurement team's concerns about pricing and vendor evaluation is critical to securing renewal.",
+              "suggested_question": "What factors are most important to your team in evaluating our pricing and offerings compared to competitors?"
+            },
+            {
+              "topic": "Renewal Strategy",
+              "rationale": "Discussing renewal strategy is vital given the upcoming renewal date and current account risks.",
+              "suggested_question": "What can we do to ensure that our partnership continues to meet your needs leading up to the renewal in November?"
+            }
+          ]
+        }
+      },
+      "expected_facts": {
+        "account": {
+          "account_id": "ACC-3930",
+          "company": "Praxis Corp",
+          "tam": "Olivia Grant",
+          "plan_tier": "Enterprise",
+          "arr_usd": 48000,
+          "seats_licensed": 1290,
+          "seats_active": 806,
+          "products": [
+            "AnalyticsHub",
+            "DataBridge Pro",
+            "SecureVault",
+            "CloudSync"
+          ],
+          "health_status": "At Risk",
+          "usage_trend": "Declining",
+          "open_tickets": 9,
+          "p1_tickets_last_30d": 2,
+          "customer_since": "2025-11-23",
+          "renewal_date": "2026-11-13",
+          "last_qbr_date": "2026-05-10",
+          "primary_contact": {
+            "name": "Alex Morgan",
+            "title": "Director of Infrastructure"
+          },
+          "escalation_notes": [
+            "Procurement team requested pricing review",
+            "Decision maker considering competing vendor evaluation"
+          ],
+          "nps_score": 4.0,
+          "last_login_days_ago": 46,
+          "integrations_active": [
+            "PagerDuty",
+            "Okta"
+          ],
+          "region": "US-East",
+          "industry": "Financial Services"
+        },
+        "metrics": {
+          "seat_utilization_percent": 62.48,
+          "licensed_seats": 1290,
+          "active_seats": 806,
+          "tickets_last_90d": 0,
+          "open_tickets_last_90d": 0,
+          "p1_tickets_last_90d": 0,
+          "p2_tickets_last_90d": 0,
+          "average_ticket_satisfaction": null
+        },
+        "tickets": [],
+        "ticket_ids": [],
+        "ticket_count": 0
+      },
+      "error": null
+    },
+    {
+      "case_id": "T2-03",
+      "task": "task2",
+      "name": "Escalation-heavy account",
+      "adversarial": false,
+      "status": "PASS",
+      "quality_score": 1.0,
+      "rule_score": 1.0,
+      "judge_score": 1.0,
+      "criteria": [
+        {
+          "criterion_id": "account_identity",
+          "score": 1.0,
+          "passed": true,
+          "method": "rule",
+          "reasoning": "Matched 2/2 account identity fields."
+        },
+        {
+          "criterion_id": "metrics",
+          "score": 1.0,
+          "passed": true,
+          "method": "rule",
+          "reasoning": "8/8 deterministic metrics match Task 2 data."
+        },
+        {
+          "criterion_id": "ticket_window",
+          "score": 1.0,
+          "passed": true,
+          "method": "rule",
+          "reasoning": "No recent tickets and no ticket-level risks."
+        },
+        {
+          "criterion_id": "risk_evidence",
+          "score": 1.0,
+          "passed": true,
+          "method": "rule",
+          "reasoning": "No risks were flagged."
+        },
+        {
+          "criterion_id": "risk_quality",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The application output identifies meaningful risks by focusing on key issues such as negative sentiment in support tickets, a high number of open tickets, and an inactive usage trend. These are significant indicators of account health and potential disengagement, rather than merely listing every support ticket. The analysis provides a coherent narrative about the account's status and suggests actionable talking points, demonstrating a clear understanding of the account's situation and potential risks."
+        },
+        {
+          "criterion_id": "summary_quality",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The executive summary accurately synthesizes the account and recent support activity by highlighting key issues such as negative sentiment in support tickets, a high number of open tickets, and an inactive usage trend. It also notes the high seat utilization as a positive aspect and mentions the absence of new tickets in the last 90 days as a potential resolution of past issues. The summary effectively captures the critical areas of concern and provides a clear overview of the account's current status, aligning well with the expected facts."
+        },
+        {
+          "criterion_id": "actionability",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The talking points in the output effectively prioritize concrete risk discussion and next steps. Each recommended talking point addresses a specific risk factor or area of concern, such as negative sentiment, engagement and usage, open tickets resolution, and renewal preparation. The rationale for each topic is clearly stated, and the suggested questions are actionable, aiming to gather more information and address the issues directly. This approach aligns well with the criterion of prioritizing concrete risk discussion and next steps."
+        }
+      ],
+      "latency_seconds": null,
+      "actual_output": {
+        "account": {
+          "account_id": "ACC-1881",
+          "company": "Massive Dynamic",
+          "tam": "Fatima Al-Rashid",
+          "plan_tier": "Starter",
+          "arr_usd": 12000.0,
+          "seats_licensed": 350,
+          "seats_active": 321,
+          "products": [
+            "DataBridge Pro",
+            "AnalyticsHub",
+            "SecureVault",
+            "WorkflowEngine"
+          ],
+          "health_status": "At Risk",
+          "usage_trend": "Inactive",
+          "open_tickets": 11,
+          "p1_tickets_last_30d": 2,
+          "customer_since": "2025-01-17",
+          "renewal_date": "2027-03-01",
+          "last_qbr_date": "2026-01-19",
+          "primary_contact": {
+            "name": "Alex Morgan",
+            "title": "Platform Lead"
+          },
+          "escalation_notes": [
+            "Negative sentiment detected in recent support tickets"
+          ],
+          "nps_score": null,
+          "last_login_days_ago": 16,
+          "integrations_active": [
+            "AWS S3",
+            "Zendesk"
+          ],
+          "region": "US-East",
+          "industry": "Media"
+        },
+        "metrics": {
+          "seat_utilization_percent": 91.71,
+          "licensed_seats": 350,
+          "active_seats": 321,
+          "tickets_last_90d": 0,
+          "open_tickets_last_90d": 0,
+          "p1_tickets_last_90d": 0,
+          "p2_tickets_last_90d": 0,
+          "average_ticket_satisfaction": null
+        },
+        "ticket_count": 0,
+        "account_analysis": {
+          "overall_assessment": "The account is currently at risk due to negative sentiment in recent support tickets, a high number of open tickets, and an inactive usage trend. The last login was 16 days ago, indicating potential disengagement. However, seat utilization is high, suggesting the products are still in use by the majority of licensed users.",
+          "positive_signals": [
+            "High seat utilization at 91.71%, indicating that the products are being used by most of the licensed users.",
+            "No new tickets have been opened in the last 90 days, suggesting a potential resolution of past issues."
+          ],
+          "negative_signals": [
+            "Health status is marked as 'At Risk'.",
+            "Negative sentiment detected in recent support tickets.",
+            "High number of open tickets (11), including 2 P1 tickets in the last 30 days.",
+            "Usage trend is 'Inactive', indicating potential disengagement.",
+            "Last login was 16 days ago, which may suggest reduced engagement."
+          ],
+          "key_observations": [
+            "Despite the high seat utilization, the account is marked 'At Risk' due to negative sentiment and a high number of open tickets, including recent P1 tickets.",
+            "The usage trend is inactive, which, combined with the last login being 16 days ago, suggests potential disengagement from the platform.",
+            "The absence of new tickets in the last 90 days could indicate that recent issues have been addressed, but the existing open tickets and negative sentiment remain a concern."
+          ]
+        },
+        "risk_analysis": {
+          "flags": []
+        },
+        "brief": {
+          "executive_summary": {
+            "text": "Massive Dynamic is currently at risk due to negative sentiment in recent support tickets and a high number of open tickets, including two P1 tickets in the last 30 days. The most important usage signal is the inactive trend, with the last login occurring 16 days ago, suggesting potential disengagement. Despite these concerns, seat utilization remains high at 91.71%, indicating that the products are still being used by most licensed users. The absence of new tickets in the last 90 days could imply that some issues have been resolved, but the existing open tickets and negative sentiment are critical areas to address. With the renewal date approaching in March 2027, it is crucial to engage with the customer to improve satisfaction and address any underlying issues."
+          },
+          "open_risks": [],
+          "recommended_talking_points": [
+            {
+              "topic": "Addressing Negative Sentiment",
+              "rationale": "Negative sentiment in support tickets is a key risk factor for the account's health.",
+              "suggested_question": "Can you share more about the specific issues that have led to negative sentiment in recent support interactions?"
+            },
+            {
+              "topic": "Engagement and Usage",
+              "rationale": "The inactive usage trend and recent login data suggest potential disengagement from the platform.",
+              "suggested_question": "What factors have contributed to the recent decrease in platform usage, and how can we support re-engagement?"
+            },
+            {
+              "topic": "Open Tickets Resolution",
+              "rationale": "A high number of open tickets, including P1 tickets, indicates unresolved issues that need attention.",
+              "suggested_question": "What are the main obstacles preventing the resolution of the current open tickets, and how can we assist in overcoming them?"
+            },
+            {
+              "topic": "Renewal Preparation",
+              "rationale": "With the renewal date approaching, understanding the customer's satisfaction and future needs is essential.",
+              "suggested_question": "As we approach the renewal period, what improvements or changes would you like to see in our service or products?"
+            }
+          ]
+        }
+      },
+      "expected_facts": {
+        "account": {
+          "account_id": "ACC-1881",
+          "company": "Massive Dynamic",
+          "tam": "Fatima Al-Rashid",
+          "plan_tier": "Starter",
+          "arr_usd": 12000,
+          "seats_licensed": 350,
+          "seats_active": 321,
+          "products": [
+            "DataBridge Pro",
+            "AnalyticsHub",
+            "SecureVault",
+            "WorkflowEngine"
+          ],
+          "health_status": "At Risk",
+          "usage_trend": "Inactive",
+          "open_tickets": 11,
+          "p1_tickets_last_30d": 2,
+          "customer_since": "2025-01-17",
+          "renewal_date": "2027-03-01",
+          "last_qbr_date": "2026-01-19",
+          "primary_contact": {
+            "name": "Alex Morgan",
+            "title": "Platform Lead"
+          },
+          "escalation_notes": [
+            "Negative sentiment detected in recent support tickets"
+          ],
+          "nps_score": null,
+          "last_login_days_ago": 16,
+          "integrations_active": [
+            "AWS S3",
+            "Zendesk"
+          ],
+          "region": "US-East",
+          "industry": "Media"
+        },
+        "metrics": {
+          "seat_utilization_percent": 91.71,
+          "licensed_seats": 350,
+          "active_seats": 321,
+          "tickets_last_90d": 0,
+          "open_tickets_last_90d": 0,
+          "p1_tickets_last_90d": 0,
+          "p2_tickets_last_90d": 0,
+          "average_ticket_satisfaction": null
+        },
+        "tickets": [],
+        "ticket_ids": [],
+        "ticket_count": 0
+      },
+      "error": null
+    },
+    {
+      "case_id": "T2-04",
+      "task": "task2",
+      "name": "Narrow analysis window",
+      "adversarial": false,
+      "status": "PASS",
+      "quality_score": 0.8,
+      "rule_score": 1.0,
+      "judge_score": 0.6667,
+      "criteria": [
+        {
+          "criterion_id": "window_correctness",
+          "score": 1.0,
+          "passed": true,
+          "method": "rule",
+          "reasoning": "No recent tickets and no ticket-level risks."
+        },
+        {
+          "criterion_id": "account_identity",
+          "score": 1.0,
+          "passed": true,
+          "method": "rule",
+          "reasoning": "Matched 2/2 account identity fields."
+        },
+        {
+          "criterion_id": "required_sections",
+          "score": 1.0,
+          "passed": true,
+          "method": "rule",
+          "reasoning": "3/3 required sections are present."
+        },
+        {
+          "criterion_id": "no_ticket_hallucination",
+          "score": 0.0,
+          "passed": false,
+          "method": "llm",
+          "reasoning": "The brief incorrectly claims recent ticket activity that is outside the selected window. Specifically, it mentions 'three P1 tickets in the last 30 days,' which contradicts the expected facts where there are no tickets in the last 90 days. This is a clear factual error and fails the criterion of avoiding unsupported claims."
+        },
+        {
+          "criterion_id": "summary_quality",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The brief provided in the actual application output is useful and actionable based on the available account-level information, even with a narrow ticket window. It accurately identifies the account as 'At Risk' due to support challenges, including negative sentiment and multiple P1 tickets. The brief highlights stable usage trends and high seat utilization as positive signals, while also addressing negative signals such as recent support issues and reduced engagement. The recommended talking points are relevant and actionable, focusing on support challenges, customer engagement, and renewal preparation. Overall, the brief effectively synthesizes the account information and provides meaningful insights and recommendations."
+        },
+        {
+          "criterion_id": "actionability",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The talking points provided in the output are reasonable and grounded, despite the limited recent ticket history. The suggested topics such as 'Support Challenges', 'Customer Engagement', and 'Renewal Preparation' are directly relevant to the account's current status and risks. The rationale for each topic is well-founded, focusing on improving customer satisfaction, understanding engagement issues, and preparing for the upcoming renewal. The suggested questions are appropriate and actionable, aiming to address the identified issues effectively."
+        }
+      ],
+      "latency_seconds": null,
+      "actual_output": {
+        "account": {
+          "account_id": "ACC-7397",
+          "company": "Gavin Belson Co",
+          "tam": "Yuki Tanaka",
+          "plan_tier": "Starter",
+          "arr_usd": 96000.0,
+          "seats_licensed": 1483,
+          "seats_active": 1355,
+          "products": [
+            "CloudSync",
+            "WorkflowEngine",
+            "DataBridge Pro",
+            "SecureVault"
+          ],
+          "health_status": "At Risk",
+          "usage_trend": "Stable",
+          "open_tickets": 9,
+          "p1_tickets_last_30d": 2,
+          "customer_since": "2025-08-14",
+          "renewal_date": "2026-07-30",
+          "last_qbr_date": "2026-01-06",
+          "primary_contact": {
+            "name": "Avery Martinez",
+            "title": "Platform Lead"
+          },
+          "escalation_notes": [
+            "Negative sentiment detected in recent support tickets",
+            "3 consecutive P1 tickets in the last 30 days"
+          ],
+          "nps_score": null,
+          "last_login_days_ago": 19,
+          "integrations_active": [
+            "BigQuery"
+          ],
+          "region": "US-Central",
+          "industry": "Energy"
+        },
+        "metrics": {
+          "seat_utilization_percent": 91.37,
+          "licensed_seats": 1483,
+          "active_seats": 1355,
+          "tickets_last_90d": 0,
+          "open_tickets_last_90d": 0,
+          "p1_tickets_last_90d": 0,
+          "p2_tickets_last_90d": 0,
+          "average_ticket_satisfaction": null
+        },
+        "ticket_count": 0,
+        "account_analysis": {
+          "overall_assessment": "The account is currently at risk due to negative sentiment in recent support tickets and multiple P1 tickets in the last 30 days. Despite stable usage trends and high seat utilization, the account's health is compromised by support-related issues and a lack of recent engagement.",
+          "positive_signals": [
+            "Stable usage trend indicates consistent product engagement.",
+            "High seat utilization at 91.37% suggests effective use of licensed seats."
+          ],
+          "negative_signals": [
+            "Account is marked as 'At Risk' due to recent support issues.",
+            "Negative sentiment detected in recent support tickets.",
+            "3 consecutive P1 tickets in the last 30 days indicate severe issues.",
+            "Last login was 19 days ago, suggesting potential disengagement.",
+            "9 open tickets indicate unresolved issues."
+          ],
+          "key_observations": [
+            "The account has experienced significant support challenges, with 3 P1 tickets in the last 30 days, contributing to its 'At Risk' status.",
+            "Despite stable usage, the negative sentiment and high severity of recent tickets suggest customer dissatisfaction.",
+            "The lack of recent logins (19 days ago) may indicate reduced engagement or satisfaction with the platform.",
+            "The upcoming renewal date on 2026-07-30 requires attention given the current account health risks."
+          ]
+        },
+        "risk_analysis": {
+          "flags": []
+        },
+        "brief": {
+          "executive_summary": {
+            "text": "Gavin Belson Co is currently at risk due to significant support challenges, including three P1 tickets in the last 30 days and negative sentiment in recent support interactions. Despite a stable usage trend and high seat utilization at 91.37%, the lack of recent logins and unresolved issues suggest potential disengagement. The upcoming renewal on July 30, 2026, necessitates immediate attention to address these concerns. Ensuring customer satisfaction and resolving open tickets are critical to improving account health."
+          },
+          "open_risks": [],
+          "recommended_talking_points": [
+            {
+              "topic": "Support Challenges",
+              "rationale": "Addressing recent support issues is crucial to improving customer satisfaction and reducing churn risk.",
+              "suggested_question": "Can you provide more details on the challenges faced with the recent P1 tickets and how we can assist in resolving them?"
+            },
+            {
+              "topic": "Customer Engagement",
+              "rationale": "Understanding the reasons behind reduced platform engagement is essential for improving user experience and satisfaction.",
+              "suggested_question": "What factors have contributed to the reduced login activity, and how can we enhance your team's engagement with our platform?"
+            },
+            {
+              "topic": "Renewal Preparation",
+              "rationale": "With the renewal date approaching, it's important to ensure all issues are resolved to secure contract renewal.",
+              "suggested_question": "What are your key priorities and concerns as we approach the renewal date, and how can we address them effectively?"
+            }
+          ]
+        }
+      },
+      "expected_facts": {
+        "account": {
+          "account_id": "ACC-7397",
+          "company": "Gavin Belson Co",
+          "tam": "Yuki Tanaka",
+          "plan_tier": "Starter",
+          "arr_usd": 96000,
+          "seats_licensed": 1483,
+          "seats_active": 1355,
+          "products": [
+            "CloudSync",
+            "WorkflowEngine",
+            "DataBridge Pro",
+            "SecureVault"
+          ],
+          "health_status": "At Risk",
+          "usage_trend": "Stable",
+          "open_tickets": 9,
+          "p1_tickets_last_30d": 2,
+          "customer_since": "2025-08-14",
+          "renewal_date": "2026-07-30",
+          "last_qbr_date": "2026-01-06",
+          "primary_contact": {
+            "name": "Avery Martinez",
+            "title": "Platform Lead"
+          },
+          "escalation_notes": [
+            "Negative sentiment detected in recent support tickets",
+            "3 consecutive P1 tickets in the last 30 days"
+          ],
+          "nps_score": null,
+          "last_login_days_ago": 19,
+          "integrations_active": [
+            "BigQuery"
+          ],
+          "region": "US-Central",
+          "industry": "Energy"
+        },
+        "metrics": {
+          "seat_utilization_percent": 91.37,
+          "licensed_seats": 1483,
+          "active_seats": 1355,
+          "tickets_last_90d": 0,
+          "open_tickets_last_90d": 0,
+          "p1_tickets_last_90d": 0,
+          "p2_tickets_last_90d": 0,
+          "average_ticket_satisfaction": null
+        },
+        "tickets": [],
+        "ticket_ids": [],
+        "ticket_count": 0
+      },
+      "error": null
+    },
+    {
+      "case_id": "T2-05",
+      "task": "task2",
+      "name": "Historical window regression",
+      "adversarial": false,
+      "status": "PASS",
+      "quality_score": 1.0,
+      "rule_score": 1.0,
+      "judge_score": 1.0,
+      "criteria": [
+        {
+          "criterion_id": "window_correctness",
+          "score": 1.0,
+          "passed": true,
+          "method": "rule",
+          "reasoning": "No recent tickets and no ticket-level risks."
+        },
+        {
+          "criterion_id": "metrics",
+          "score": 1.0,
+          "passed": true,
+          "method": "rule",
+          "reasoning": "8/8 deterministic metrics match Task 2 data."
+        },
+        {
+          "criterion_id": "account_identity",
+          "score": 1.0,
+          "passed": true,
+          "method": "rule",
+          "reasoning": "Matched 2/2 account identity fields."
+        },
+        {
+          "criterion_id": "historical_grounding",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The brief accurately describes the current state of the account without referencing events outside the selected historical window as recent activity. It focuses on the declining usage trends, low NPS score, and open tickets, all of which are relevant to the current analysis period. The executive summary and recommended talking points are based on the data provided within the 90-day window, ensuring that the analysis is timely and relevant."
+        },
+        {
+          "criterion_id": "summary_quality",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The executive summary accurately synthesizes the account status by highlighting key issues such as declining usage trends, low NPS score, low seat utilization, and a high number of open tickets. It also correctly identifies the potential risk of churn due to interest in competing vendors and pricing concerns, aligning with the expected facts. The summary is concise and provides a clear overview of the account's health and risks, making it actionable for the TAM."
+        },
+        {
+          "criterion_id": "actionability",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The talking points in the output are well-grounded in the historical context provided by the account data. Each topic is directly related to the issues identified in the account analysis, such as declining usage, low seat utilization, open tickets, and competitive threats. The rationale for each talking point is clearly linked to the account's current status and challenges, ensuring that the suggested questions are relevant and actionable. This demonstrates a strong synthesis of the account's historical data and current risks, making the talking points both meaningful and useful for addressing the account's needs."
+        }
+      ],
+      "latency_seconds": null,
+      "actual_output": {
+        "account": {
+          "account_id": "ACC-3930",
+          "company": "Praxis Corp",
+          "tam": "Olivia Grant",
+          "plan_tier": "Enterprise",
+          "arr_usd": 48000.0,
+          "seats_licensed": 1290,
+          "seats_active": 806,
+          "products": [
+            "AnalyticsHub",
+            "DataBridge Pro",
+            "SecureVault",
+            "CloudSync"
+          ],
+          "health_status": "At Risk",
+          "usage_trend": "Declining",
+          "open_tickets": 9,
+          "p1_tickets_last_30d": 2,
+          "customer_since": "2025-11-23",
+          "renewal_date": "2026-11-13",
+          "last_qbr_date": "2026-05-10",
+          "primary_contact": {
+            "name": "Alex Morgan",
+            "title": "Director of Infrastructure"
+          },
+          "escalation_notes": [
+            "Procurement team requested pricing review",
+            "Decision maker considering competing vendor evaluation"
+          ],
+          "nps_score": 4.0,
+          "last_login_days_ago": 46,
+          "integrations_active": [
+            "PagerDuty",
+            "Okta"
+          ],
+          "region": "US-East",
+          "industry": "Financial Services"
+        },
+        "metrics": {
+          "seat_utilization_percent": 62.48,
+          "licensed_seats": 1290,
+          "active_seats": 806,
+          "tickets_last_90d": 0,
+          "open_tickets_last_90d": 0,
+          "p1_tickets_last_90d": 0,
+          "p2_tickets_last_90d": 0,
+          "average_ticket_satisfaction": null
+        },
+        "ticket_count": 0,
+        "account_analysis": {
+          "overall_assessment": "Praxis Corp is currently at risk due to declining usage trends, low NPS, and significant open ticket volume. The account is further complicated by a recent lack of engagement and potential interest in competing vendors.",
+          "positive_signals": [
+            "Enterprise plan tier indicates high-value customer.",
+            "Active integrations with PagerDuty and Okta suggest some level of product engagement."
+          ],
+          "negative_signals": [
+            "Health status is marked as 'At Risk'.",
+            "Usage trend is declining, indicating reduced engagement with the products.",
+            "NPS score is low at 4.0, suggesting customer dissatisfaction.",
+            "High number of open tickets (9) with 2 being P1 in the last 30 days, indicating unresolved issues.",
+            "Last login was 46 days ago, showing lack of recent engagement.",
+            "Escalation notes indicate potential interest in competing vendors and pricing concerns.",
+            "Seat utilization is low at 62.48%, indicating underutilization of licensed seats."
+          ],
+          "key_observations": [
+            "The declining usage trend and low seat utilization suggest that Praxis Corp is not fully leveraging the products they have licensed, which may contribute to their 'At Risk' status.",
+            "The high number of open tickets, including P1 tickets, could be impacting customer satisfaction and contributing to the low NPS score.",
+            "The lack of recent logins and the time since the last QBR may indicate a need for increased engagement from the TAM to address customer concerns and improve product adoption.",
+            "Escalation notes highlight potential competitive threats and pricing issues that need to be addressed to prevent churn."
+          ]
+        },
+        "risk_analysis": {
+          "flags": []
+        },
+        "brief": {
+          "executive_summary": {
+            "text": "Praxis Corp is currently at risk, with declining usage trends and a low NPS score of 4.0, indicating customer dissatisfaction. The most significant usage signal is the low seat utilization at 62.48%, suggesting underutilization of licensed products. The high number of open tickets, including two P1 tickets in the last 30 days, highlights unresolved issues impacting customer satisfaction. With the renewal date approaching in November 2026, addressing these concerns is critical to prevent potential churn, especially given the interest in competing vendors and pricing concerns."
+          },
+          "open_risks": [],
+          "recommended_talking_points": [
+            {
+              "topic": "Declining Usage and Seat Utilization",
+              "rationale": "Understanding the reasons behind the declining usage and low seat utilization is crucial to improving product adoption and customer satisfaction.",
+              "suggested_question": "Can you share any specific challenges or barriers that are preventing your team from fully utilizing the licensed products?"
+            },
+            {
+              "topic": "Open Tickets and Customer Satisfaction",
+              "rationale": "Resolving open tickets and improving customer satisfaction are essential to maintaining a healthy account relationship.",
+              "suggested_question": "What specific issues have been most problematic, and how can we assist in resolving them promptly?"
+            },
+            {
+              "topic": "Competitive Threats and Pricing Concerns",
+              "rationale": "Addressing potential competitive threats and pricing concerns is vital to securing the upcoming renewal.",
+              "suggested_question": "Are there specific features or pricing models from competitors that you find appealing, and how can we better align our offerings to meet your needs?"
+            },
+            {
+              "topic": "Engagement and Support",
+              "rationale": "Increasing engagement and support can help address customer concerns and improve product adoption.",
+              "suggested_question": "How can we enhance our support and engagement to better meet your needs and expectations?"
+            }
+          ]
+        }
+      },
+      "expected_facts": {
+        "account": {
+          "account_id": "ACC-3930",
+          "company": "Praxis Corp",
+          "tam": "Olivia Grant",
+          "plan_tier": "Enterprise",
+          "arr_usd": 48000,
+          "seats_licensed": 1290,
+          "seats_active": 806,
+          "products": [
+            "AnalyticsHub",
+            "DataBridge Pro",
+            "SecureVault",
+            "CloudSync"
+          ],
+          "health_status": "At Risk",
+          "usage_trend": "Declining",
+          "open_tickets": 9,
+          "p1_tickets_last_30d": 2,
+          "customer_since": "2025-11-23",
+          "renewal_date": "2026-11-13",
+          "last_qbr_date": "2026-05-10",
+          "primary_contact": {
+            "name": "Alex Morgan",
+            "title": "Director of Infrastructure"
+          },
+          "escalation_notes": [
+            "Procurement team requested pricing review",
+            "Decision maker considering competing vendor evaluation"
+          ],
+          "nps_score": 4.0,
+          "last_login_days_ago": 46,
+          "integrations_active": [
+            "PagerDuty",
+            "Okta"
+          ],
+          "region": "US-East",
+          "industry": "Financial Services"
+        },
+        "metrics": {
+          "seat_utilization_percent": 62.48,
+          "licensed_seats": 1290,
+          "active_seats": 806,
+          "tickets_last_90d": 0,
+          "open_tickets_last_90d": 0,
+          "p1_tickets_last_90d": 0,
+          "p2_tickets_last_90d": 0,
+          "average_ticket_satisfaction": null
+        },
+        "tickets": [],
+        "ticket_ids": [],
+        "ticket_count": 0
+      },
+      "error": null
+    },
+    {
+      "case_id": "T2-06",
+      "task": "task2",
+      "name": "Account-ticket inconsistency",
+      "adversarial": true,
+      "status": "PASS",
+      "quality_score": 1.0,
+      "rule_score": 1.0,
+      "judge_score": 1.0,
+      "criteria": [
+        {
+          "criterion_id": "account_identity",
+          "score": 1.0,
+          "passed": true,
+          "method": "rule",
+          "reasoning": "Matched 2/2 account identity fields."
+        },
+        {
+          "criterion_id": "ticket_window",
+          "score": 1.0,
+          "passed": true,
+          "method": "rule",
+          "reasoning": "No recent tickets and no ticket-level risks."
+        },
+        {
+          "criterion_id": "risk_evidence",
+          "score": 1.0,
+          "passed": true,
+          "method": "rule",
+          "reasoning": "No risks were flagged."
+        },
+        {
+          "criterion_id": "source_distinction",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The application output clearly distinguishes between account-level facts and individual ticket-level facts. It correctly identifies account-level issues such as the overall health status being 'At Risk', the presence of negative sentiment in support tickets, and the number of P1 tickets in the last 30 days. It does not confuse these with individual ticket urgency or details, maintaining a clear separation between account-wide assessments and specific ticket issues. This distinction is maintained throughout the summary, analysis, and recommended talking points."
+        },
+        {
+          "criterion_id": "historical_accuracy",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The output does not describe any April ticket as recent relative to the August 27 analysis date. The analysis focuses on recent support tickets and P1 tickets within the last 30 days, which is consistent with the analysis date provided. Therefore, the output satisfies the criterion."
+        },
+        {
+          "criterion_id": "no_contradictory_claims",
+          "score": 1.0,
+          "passed": true,
+          "method": "llm",
+          "reasoning": "The application output does not make any claims about individual tickets being P1 when they are actually P3. The output discusses multiple P1 tickets in the last 30 days as a general observation, which aligns with the expected facts. Therefore, it satisfies the criterion of not misclassifying ticket urgency."
+        }
+      ],
+      "latency_seconds": null,
+      "actual_output": {
+        "account": {
+          "account_id": "ACC-7397",
+          "company": "Gavin Belson Co",
+          "tam": "Yuki Tanaka",
+          "plan_tier": "Starter",
+          "arr_usd": 96000.0,
+          "seats_licensed": 1483,
+          "seats_active": 1355,
+          "products": [
+            "CloudSync",
+            "WorkflowEngine",
+            "DataBridge Pro",
+            "SecureVault"
+          ],
+          "health_status": "At Risk",
+          "usage_trend": "Stable",
+          "open_tickets": 9,
+          "p1_tickets_last_30d": 2,
+          "customer_since": "2025-08-14",
+          "renewal_date": "2026-07-30",
+          "last_qbr_date": "2026-01-06",
+          "primary_contact": {
+            "name": "Avery Martinez",
+            "title": "Platform Lead"
+          },
+          "escalation_notes": [
+            "Negative sentiment detected in recent support tickets",
+            "3 consecutive P1 tickets in the last 30 days"
+          ],
+          "nps_score": null,
+          "last_login_days_ago": 19,
+          "integrations_active": [
+            "BigQuery"
+          ],
+          "region": "US-Central",
+          "industry": "Energy"
+        },
+        "metrics": {
+          "seat_utilization_percent": 91.37,
+          "licensed_seats": 1483,
+          "active_seats": 1355,
+          "tickets_last_90d": 0,
+          "open_tickets_last_90d": 0,
+          "p1_tickets_last_90d": 0,
+          "p2_tickets_last_90d": 0,
+          "average_ticket_satisfaction": null
+        },
+        "ticket_count": 0,
+        "account_analysis": {
+          "overall_assessment": "The account is currently at risk due to negative sentiment in recent support tickets and multiple P1 tickets in the last 30 days. Despite a stable usage trend and high seat utilization, the lack of recent logins and open tickets indicate potential disengagement or unresolved issues.",
+          "positive_signals": [
+            "Stable usage trend indicating consistent use of products.",
+            "High seat utilization at 91.37%, suggesting the products are being actively used."
+          ],
+          "negative_signals": [
+            "Account is marked as 'At Risk' with negative sentiment detected in recent support tickets.",
+            "3 consecutive P1 tickets in the last 30 days, indicating severe issues.",
+            "9 open tickets, which could suggest unresolved problems or dissatisfaction.",
+            "Last login was 19 days ago, indicating potential disengagement.",
+            "No recent ticket satisfaction data available, making it difficult to assess customer sentiment."
+          ],
+          "key_observations": [
+            "The account has a stable usage trend and high seat utilization, which are positive indicators of product engagement.",
+            "The presence of multiple P1 tickets and negative sentiment in support interactions are significant risk factors.",
+            "The lack of recent logins and open tickets may indicate unresolved issues or customer disengagement.",
+            "The renewal date is approaching in a few months, making it crucial to address these issues to improve the account's health."
+          ]
+        },
+        "risk_analysis": {
+          "flags": []
+        },
+        "brief": {
+          "executive_summary": {
+            "text": "Gavin Belson Co is currently at risk due to negative sentiment in recent support tickets and multiple P1 tickets in the last 30 days, despite a stable usage trend and high seat utilization of 91.37%. The most important usage signal is the stable trend and high seat utilization, indicating active engagement with the products. However, the lack of recent logins and the presence of 9 open tickets suggest potential disengagement or unresolved issues. With the renewal date approaching in a few months, it is crucial to address these issues to improve the account's health and ensure a successful renewal."
+          },
+          "open_risks": [],
+          "recommended_talking_points": [
+            {
+              "topic": "Addressing Negative Sentiment",
+              "rationale": "Negative sentiment in support tickets is a significant risk factor that needs to be addressed to improve customer satisfaction and retention.",
+              "suggested_question": "Can you share more details about the specific issues that have led to negative sentiment in recent support interactions?"
+            },
+            {
+              "topic": "Resolving P1 Tickets",
+              "rationale": "Multiple P1 tickets indicate severe issues that could impact the customer's operations and satisfaction.",
+              "suggested_question": "What are the main challenges you are facing that have resulted in multiple P1 tickets recently?"
+            },
+            {
+              "topic": "Customer Engagement",
+              "rationale": "The lack of recent logins and open tickets may indicate disengagement, which could affect renewal.",
+              "suggested_question": "Are there any barriers preventing your team from logging in or fully utilizing the platform?"
+            },
+            {
+              "topic": "Renewal Preparation",
+              "rationale": "With the renewal date approaching, it is important to ensure all issues are resolved to secure the renewal.",
+              "suggested_question": "What can we do to ensure that your needs are fully met before the upcoming renewal?"
+            }
+          ]
+        }
+      },
+      "expected_facts": {
+        "account": {
+          "account_id": "ACC-7397",
+          "company": "Gavin Belson Co",
+          "tam": "Yuki Tanaka",
+          "plan_tier": "Starter",
+          "arr_usd": 96000,
+          "seats_licensed": 1483,
+          "seats_active": 1355,
+          "products": [
+            "CloudSync",
+            "WorkflowEngine",
+            "DataBridge Pro",
+            "SecureVault"
+          ],
+          "health_status": "At Risk",
+          "usage_trend": "Stable",
+          "open_tickets": 9,
+          "p1_tickets_last_30d": 2,
+          "customer_since": "2025-08-14",
+          "renewal_date": "2026-07-30",
+          "last_qbr_date": "2026-01-06",
+          "primary_contact": {
+            "name": "Avery Martinez",
+            "title": "Platform Lead"
+          },
+          "escalation_notes": [
+            "Negative sentiment detected in recent support tickets",
+            "3 consecutive P1 tickets in the last 30 days"
+          ],
+          "nps_score": null,
+          "last_login_days_ago": 19,
+          "integrations_active": [
+            "BigQuery"
+          ],
+          "region": "US-Central",
+          "industry": "Energy"
+        },
+        "metrics": {
+          "seat_utilization_percent": 91.37,
+          "licensed_seats": 1483,
+          "active_seats": 1355,
+          "tickets_last_90d": 0,
+          "open_tickets_last_90d": 0,
+          "p1_tickets_last_90d": 0,
+          "p2_tickets_last_90d": 0,
+          "average_ticket_satisfaction": null
+        },
+        "tickets": [],
+        "ticket_ids": [],
+        "ticket_count": 0
+      },
+      "error": null
+    }
+  ]
+}

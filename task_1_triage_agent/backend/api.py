@@ -954,7 +954,7 @@ async def triage_stream(
                         "result",
                         {
                             "data":
-                                event['data'],
+                                event['data']['final_result'].model_dump(mode="json")  # type: ignore,
                         },
                     )
 
