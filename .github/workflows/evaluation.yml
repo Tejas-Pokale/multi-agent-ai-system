@@ -94,7 +94,7 @@ jobs:
         shell: bash
         run: |
           nohup python -m uvicorn \
-            task_1_triage_agent.app:app \
+            task_1_triage_agent.backend.api:app \
             --host 127.0.0.1 \
             --port 8000 \
             > task1_api.log 2>&1 &
