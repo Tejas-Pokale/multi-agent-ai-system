@@ -248,8 +248,8 @@ project/
 │   └── tickets.json
 │
 ├── reports/
-│   ├── evaluation_results.json
-│   └── evaluation_report.md
+│   ├── eval_report.json
+│   └── eval_report.md
 │
 ├── .env.example
 ├── .gitignore
@@ -267,7 +267,7 @@ This project uses [**uv**](https://docs.astral.sh/uv/) for environment and depen
 ### 1. Clone the repository
 
 ```bash
-git clone <YOUR_GITHUB_REPOSITORY_URL>
+git clone https://github.com/Tejas-Pokale/multi-agent-ai-system.git
 cd <YOUR_REPOSITORY_DIRECTORY>
 ```
 
@@ -287,7 +287,7 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 
 ### 3. Create the virtual environment and install dependencies
 
-If the project uses `pyproject.toml` (recommended):
+The project uses `pyproject.toml`:
 
 ```bash
 uv sync
@@ -295,7 +295,7 @@ uv sync
 
 This creates a `.venv` automatically and installs all dependencies from `pyproject.toml` / `uv.lock`.
 
-If the project instead uses a `requirements.txt`:
+Also run the `requirements.txt`:
 
 ```bash
 uv venv
@@ -373,7 +373,7 @@ Task 1 exposes a FastAPI service.
 Start the FastAPI application using the Task 1 application entry point:
 
 ```bash
-uv run uvicorn <task1_module>:app --host 127.0.0.1 --port 8000
+pythom -m uv run uvicorn task_1_triage_agent.backend.api:app --host 127.0.0.1 --port 8000
 ```
 
 The normal synchronous triage endpoint is:
@@ -389,6 +389,12 @@ A sample request:
   "subject": "Production pipeline failing",
   "body": "Our production pipeline has been failing since this morning and is affecting multiple users. Please help urgently."
 }
+```
+
+Also you can directly run streamlit app which starts the backend automatically:
+
+```bash
+py -m streamlit run task_1_triage_agent\app.py
 ```
 
 A successful response contains the structured triage result including classification, prioritisation, reasoning, evidence, routing, and draft response.
@@ -456,7 +462,7 @@ uv run uvicorn <task1_module>:app --host 127.0.0.1 --port 8000
 From the repository root:
 
 ```bash
-uv run python -m task_3_evaluation_harness.run_evals
+python -m task_3_evaluation_harness.run_evals
 ```
 
 Task 2 does not require the Streamlit application to be running. The evaluator imports the Task 2 summarisation function directly.
@@ -465,8 +471,8 @@ The evaluator produces:
 
 ```text
 reports/
-├── evaluation_results.json
-└── evaluation_report.md
+├── eval_report.json
+└── eval_report.md
 ```
 
 The report contains:
@@ -819,7 +825,7 @@ The real `.env` file should be included in `.gitignore`.
 Start the FastAPI service:
 
 ```bash
-uv run uvicorn <task1_module>:app --host 127.0.0.1 --port 8000
+uv run uvicorn task_1_triage_agent.backend.api:app --host 127.0.0.1 --port 8000
 ```
 
 Submit a ticket through the normal `/triage` endpoint or use the Task 1 Streamlit interface.
@@ -829,7 +835,7 @@ Submit a ticket through the normal `/triage` endpoint or use the Task 1 Streamli
 Start Streamlit:
 
 ```bash
-uv run streamlit run task_2_tam_account_health_summariser/app.py
+py -m streamlit run task_2_tam_account_health_summariser/app.py
 ```
 
 Select an account, analysis date, and ticket-history window and generate the TAM brief.
@@ -839,14 +845,14 @@ Select an account, analysis date, and ticket-history window and generate the TAM
 Keep the Task 1 API running and execute:
 
 ```bash
-uv run python -m task_3_evaluation_harness.run_evals
+python -m task_3_evaluation_harness.run_evals
 ```
 
 Review:
 
 ```text
-reports/evaluation_results.json
-reports/evaluation_report.md
+reports/eval_report.json
+reports/eval_report.md
 ```
 
 ---
@@ -855,9 +861,9 @@ reports/evaluation_report.md
 
 Loom video:
 
-**[INSERT LOOM VIDEO URL]**
+https://www.loom.com/share/5022943dea5b457fad45665685af2b3b
 
-The video should demonstrate:
+The video will demonstrate:
 
 1. Task 1 code architecture and live ticket triage
 2. Task 2 account-health summarisation
@@ -869,30 +875,20 @@ The video should demonstrate:
 
 ## Submission Checklist
 
-- [x] Public/shared GitHub repository
-- [x] Top-level README
-- [x] Setup instructions
-- [x] Task 1 sample run
-- [x] Task 2 sample run
-- [x] Task 3 evaluation instructions
-- [x] Task 4 design note
-- [x] Evaluation report included in repository
-- [x] `.env.example` included
-- [ ] Real `.env` excluded from repository
-- [ ] Loom URL inserted
-- [x] Streamlit TAM UI
-- [x] Streaming output
-- [x] Automated evaluation harness
-- [x] Prompt versioning
+- [done] Public/shared GitHub repository
+- [done] Top-level README
+- [done] Setup instructions
+- [done] Task 1 sample run
+- [done] Task 2 sample run
+- [done] Task 3 evaluation instructions
+- [done] Task 4 design note
+- [done] Evaluation report included in repository
+- [done] `.env.example` included
+- [done] Real `.env` excluded from repository
+- [done] Loom URL inserted
+- [done] Streamlit TAM UI
+- [done] Streaming output
+- [done] Automated evaluation harness
+- [done] Prompt versioning
 
 ---
-
-### Placeholders to replace before committing
-
-```text
-<YOUR_GITHUB_REPOSITORY_URL>
-<YOUR_REPOSITORY_DIRECTORY>
-<task1_module>
-```
-
-Everything else assumes report paths of `reports/evaluation_results.json` and `reports/evaluation_report.md`, and a Task 1 endpoint of `POST /triage`.
