@@ -104,7 +104,7 @@ The application exposes both a normal synchronous FastAPI endpoint and a streami
 
 **OUTPUT:-**
 
-![alt text](images\task-1.png)
+![images/task-1.png](images/task-1.png)
 
 ### Task 2 — TAM Account Health Summariser
 
@@ -164,7 +164,7 @@ The analysis date defaults to the current date and cannot be moved into the futu
 
 **OUTPUT:-**
 
-![alt text](images\task-2.png)
+![images/task-2.png](images/task-2.png)
 
 ### Task 3 — Evaluation Harness
 
@@ -222,7 +222,7 @@ For Task 2, factual expectations are derived directly from the Task 2 data layer
 
 **OUTPUT:-**
 
-![alt text](images\task-3.png)
+![images/task-3.png](images/task-3.png)
 
 ## Repository Structure
 
